@@ -7,18 +7,32 @@
 
   <div id="root">
   <ul>
-    <li v-for="name in name" v-text="name"></li>
+    <li v-for="name in names" v-text="name"></li>
   </ul>
+
+  <input id="input" type="text">
+
+  <button id="button">Add Name</button>
 
   </div>
 
   <script src="https://unpkg.com/vue@2.1.3/dist/vue.js"></script>
 
   <script>
-    new Vue({
+    var app = new Vue({
       el: '#root',
       data: {
-        name: ['Jon', 'Snow', 'Nic', 'Doris', 'Kurt']
+        names: ['Jon', 'Snow', 'Nic', 'Doris', 'Kurt']
+      },
+
+      mounted() {
+        document.querySelector("#button").addEventListener("click", () => {
+          let name = document.querySelector("#input");
+
+          app.names.push(name.value);
+
+          name.value = '';
+        })
       }
     })
   </script>
