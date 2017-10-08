@@ -1,25 +1,27 @@
-Vue.component('coupon', {
-  template: `<input placeholder="Enter your coupon code" @blur="onCouponApplied">`,
+Vue.component('modal', {
 
-  methods: {
-    onCouponApplied(){
-      this.$emit('applied')
-    }
-  }
+  template: `
+    <div class="modal is-active">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">
+            <slot name="header"></slot>
+          </p>
+          <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          <slot name="message"></slot>
+        </section>
+        <footer class="modal-card-foot">
+          <button class="button is-success">Save changes</button>
+          <button class="button">Cancel</button>
+        </footer>
+      </div>
+    </div>
+  `
 });
 
 new Vue({
-
-  el: '#root',
-
-  data: {
-    couponApplied: false
-  },
-
-  methods: {
-    onCouponApplied(){
-      this.couponApplied = true
-    }
-  }
-
+  el: '#root'
 });
