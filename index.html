@@ -6,8 +6,19 @@
 <body>
 
   <div id="root" class="container">
-    <modal v-show="showModal" @close="showModal = false"></modal>
-    <button @click="showModal = true">Show Modal</button>
+    <tabs>
+      <tab name="About Us" :selected="true">
+        <h1>Here is the content for the about us</h1>
+      </tab>
+
+      <tab name="About Our Culture">
+        <h1>Here is the content for the our culture</h1>
+      </tab>
+
+      <tab name="About Our Vision">
+        <h1>Here is the content for the vision</h1>
+      </tab>
+    </tabs>
   </div>
 
   <script src="https://unpkg.com/vue@2.1.3/dist/vue.js"></script>
